@@ -1,22 +1,17 @@
 import tweepy
+from config.settings import Settings
 
 
 class TwitterService:
     """Handles interactions with Twitter API."""
 
-    def __init__(
-        self,
-        api_key: str,
-        api_secret: str,
-        access_token: str,
-        access_secret: str,
-    ) -> None:
-        """Initialize the Twitter Client."""
+    def __init__(self) -> None:
+        """Initialize the Twitter Client using environment variables."""
         self.client = tweepy.Client(
-            consumer_key=api_key,
-            consumer_secret=api_secret,
-            access_token=access_token,
-            access_token_secret=access_secret,
+            consumer_key=Settings.TWITTER_API_KEY,
+            consumer_secret=Settings.TWITTER_API_SECRET,
+            access_token=Settings.TWITTER_ACCESS_TOKEN,
+            access_token_secret=Settings.TWITTER_ACCESS_SECRET,
         )
 
     def post_tweet(self, message: str) -> None:
