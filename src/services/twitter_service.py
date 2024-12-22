@@ -14,8 +14,11 @@ class TwitterService:
             access_token_secret=Settings.TWITTER_ACCESS_SECRET,
         )
 
-    def post_tweet(self, message: str) -> None:
-        """Posts a tweet with the given message."""
+    def post_tweet(self, message: str) -> dict:
+        """Posts a tweet with the given message.
+        :param message: The message to post.
+        :return: The tweet response
+        """
         try:
             response = self.client.create_tweet(text=message)
             return response.data
