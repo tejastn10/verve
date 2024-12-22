@@ -31,10 +31,7 @@ class Logger:
         logger.add(
             sys.stdout,
             level=level,
-            format=(
-                "<green>{time:YYYY-MM-DD HH:mm:ss}</green> "
-                "| <level>{level:<8}</level> | {message}"
-            ),
+            format=("<green>{time:YYYY-MM-DD HH:mm:ss}</green> " "| <level>{level:<8}</level> | {message}"),
             colorize=True,
         )
 
