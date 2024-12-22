@@ -28,7 +28,6 @@ repos:
             "--ignore=E203,W503,W504",
             "--max-complexity=12",
             "--per-file-ignores=__init__.py:F401",
-            "--docstring-convention=google"
         ]
 
 -   repo: https://github.com/asottile/add-trailing-comma
