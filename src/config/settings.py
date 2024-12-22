@@ -3,9 +3,16 @@ import os
 from dotenv import load_dotenv
 
 # * Load environment variables from the .env file
-dotenv_path = os.path.join(os.path.dirname(__file__), "../../.env")
+# ? Moves two levels up from `src/config`
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+
+# ? Path to the `.env` file in the root (`verve`) directory
+dotenv_path = os.path.join(BASE_DIR, ".env")
+
+# * Load environment variables from the .env file
+print("Dotenv path:", dotenv_path)
 if os.path.exists(dotenv_path):
-    load_dotenv(dotenv_path=dotenv_path)
+    load_dotenv(dotenv_path=dotenv_path, override=True)
 
 
 class Settings:
