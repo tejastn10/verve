@@ -15,6 +15,7 @@ standard-imghdr = "^3.13.0"
 loguru = "^0.7.3"
 urllib3 = "^2.2.3"
 requests = "^2.32.3"
+schedule = "^1.2.2"
 
 
 [tool.poetry.group.dev.dependencies]
