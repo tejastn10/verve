@@ -23,5 +23,20 @@ class TwitterService:
         try:
             response = self.client.create_tweet(text=message)
             return response.data
+        except tweepy.errors.Forbidden as e:
+            # Handle duplicate content error (403 Forbidden)
+            print(f"Error posting tweet: Forbidden - Duplicate content: {e}")
+            # Optionally, try to send a different fallback message here if you need
+            fallback_message = "Stay motivated! 🚀"
+            try:
+                # Fallback to a generic motivational tweet
+                response = self.client.create_tweet(text=fallback_message)
+                return response.data
+            except Exception as e:
+                # Log the error and return a failure response
+                print(f"Error posting fallback tweet: {e}")
+                return {"error": "Unable to post tweet after retry"}
         except Exception as e:
-            raise RuntimeError(f"Failed to post tweet: {e}")
+            # Catch any other general exceptions and log them
+            print(f"Error posting tweet: {e}")
+            return {"error": f"Failed to post tweet: {e}"}
