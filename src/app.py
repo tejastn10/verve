@@ -16,6 +16,7 @@ def main():
         ],
     )
 
+    print("Twitter bot is running...")
     # Scheduler to post tweets
     schedule_tweets()
 

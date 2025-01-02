@@ -1,0 +1,7 @@
+services:
+  - type: worker
+    name: verve-bot
+    env: python
+    region: singapore
+    buildCommand: poetry install
+    startCommand: poetry run python src/app.py
