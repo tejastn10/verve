@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Safety Security Audit
         run: |
-          poetry run safety check --full-report --ignore  # Run security audit on installed dependencies
+          poetry run safety check
           if [ $? -ne 0 ]; then
             echo "Security audit failed"
             exit 1
