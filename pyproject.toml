@@ -7,15 +7,16 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
-openai = "^1.57.4"
+python = "^3.11 || ^3.12"
 python-dotenv = "^1.0.1"
 tweepy = "^4.14.0"
 standard-imghdr = "^3.13.0"
 loguru = "^0.7.3"
-urllib3 = "^2.2.3"
 requests = "^2.32.3"
 schedule = "^1.2.2"
+transformers = "^4.47.1"
+torch = "^2.5.1"
+pytest = "^8.3.4"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -25,6 +26,17 @@ isort = "^5.13.2"
 pytest = "^8.3.4"
 pre-commit = "^4.0.1"
 importlib-metadata = "^8.5.0"
+safety = "^3.2.14"
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+filterwarnings = [
+    "error",
+    "ignore::UserWarning",
+    "ignore::DeprecationWarning",
+    # note the use of single quote below to denote "raw" strings in TOML
+    'ignore:function ham\(\) is deprecated:DeprecationWarning',
+]
 
 [build-system]
 requires = ["poetry-core"]

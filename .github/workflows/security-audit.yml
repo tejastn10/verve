@@ -1,0 +1,37 @@
+name: Security Audit
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  security_audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install Dependencies
+        run: |
+          poetry install
+
+      - name: Run Safety Security Audit
+        run: |
+          poetry run safety check
+          if [ $? -ne 0 ]; then
+            echo "Security audit failed"
+            exit 1
+          fi
