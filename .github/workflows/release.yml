@@ -1,0 +1,46 @@
+name: Release Workflow
+
+on:
+  push:
+    tags:
+      - "v*.*.*" # Trigger the workflow when a version tag is pushed
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build and Release
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Fetch all tags
+      - name: Fetch Tags
+        run: git fetch --force --tags
+
+      # Create GitHub Release
+      - name: Generate Release Notes
+        id: release-notes
+        run: |
+          echo "# Verve ${{ github.ref_name }} 🚀" >> release-notes.md
+          echo "" >> release-notes.md
+          echo "## Highlights" >> release-notes.md
+          echo "" >> release-notes.md
+          echo "---" >> release-notes.md
+          echo "" >> release-notes.md
+          echo "## Changelog" >> release-notes.md
+          echo "" >> release-notes.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          body_path: release-notes.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
