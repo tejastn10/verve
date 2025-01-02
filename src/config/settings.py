@@ -15,9 +15,6 @@ if os.path.exists(dotenv_path):
 
 
 class Settings:
-    # OpenAI
-    OPEN_API_KEY = os.getenv("OPENAI_API_KEY")
-
     # Twitter API credentials
     TWITTER_API_KEY = os.getenv("TWITTER_API_KEY")
     TWITTER_API_SECRET = os.getenv("TWITTER_API_SECRET")
