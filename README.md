@@ -2,6 +2,7 @@
 
 ![Python Version](https://img.shields.io/pypi/pyversions/pytest?logo=python&version=3.11)
 [![Unit Tests](https://github.com/tejastn10/verve/actions/workflows/unit-test.yml/badge.svg)](https://github.com/tejastn10/verve/actions/workflows/unit-test.yml)
+[![Release Workflow](https://github.com/tejastn10/verve/actions/workflows/release.yml/badge.svg)](https://github.com/tejastn10/verve/actions/workflows/release.yml)
 ![License](https://img.shields.io/badge/License-MIT-yellow?logo=open-source-initiative&logoColor=white)
 
 **Daily Motivation at Your Fingertips**. Verve Bot is an AI-powered Twitter bot that spreads positivity and inspiration every day. Built with Python, Verve crafts personalized motivational messages for various audiences and posts them to Twitter, ensuring everyone gets their daily dose of encouragement.
