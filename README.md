@@ -1,6 +1,7 @@
 # Verve 🤖
 
 ![Python Version](https://img.shields.io/pypi/pyversions/pytest?logo=python&version=3.11)
+[![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
 [![Unit Tests](https://github.com/tejastn10/verve/actions/workflows/unit-test.yml/badge.svg)](https://github.com/tejastn10/verve/actions/workflows/unit-test.yml)
 [![Release Workflow](https://github.com/tejastn10/verve/actions/workflows/release.yml/badge.svg)](https://github.com/tejastn10/verve/actions/workflows/release.yml)
 ![License](https://img.shields.io/badge/License-MIT-yellow?logo=open-source-initiative&logoColor=white)
