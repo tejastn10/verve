@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.svg" alt="Logo">
+</p>
+
 # Verve 🤖
 
 ![Python Version](https://img.shields.io/pypi/pyversions/pytest?logo=python&version=3.11)
